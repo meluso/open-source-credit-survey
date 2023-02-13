@@ -5,11 +5,12 @@ Created on Wed Feb  2 13:20:23 2022
 @author: Juango the Blue
 """
 
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
 
-file = 'OSCS_20220629.csv'
+file = '../data/OSCS_20220629.csv'
 df = pd.read_csv(file)
 df = df.loc[2:,:]
 df.rename(columns={'Path1-LaborVisibility_DO':'Order'},inplace = True)
@@ -27,8 +28,8 @@ df2 = pd.melt(
     var_name='Question'
     )
 
-response_order = ['1 - Never','2 - Rarely','3 - Sometimes','4 - Often',
-                  '5 - Always', 'nan', "I'm not sure"]
+response_order = ['5 - Always','4 - Often','3 - Sometimes','2 - Rarely',
+                  '1 - Never','nan', "I'm not sure"]
 df3 = df2
 
 # Create histograms
@@ -36,11 +37,18 @@ df2.value = pd.Categorical(df2.value,response_order)
 g1 = sns.displot(
     data=df2,
     kind='hist',
-    x='value',
+    y='value',
     hue='Order',
     col='Question'
     )
-g1.set_xticklabels(rotation=45)
+sns.move_legend(g1,'lower center',bbox_to_anchor=(.5, 0),
+                ncol=2, title=None, frameon=False, prop={'size': 12})
+axes = g1.axes.flatten()
+num_people = ['2 or more','Only 1','Nobody else']
+for ax, title in zip(axes, num_people):
+    ax.set_title(title)
+plt.tight_layout(rect=(0,0.05,1,1))
+g1.savefig('../figures/explore_visibility.png',dpi=300)
 
 #%% ANOVA
 sns.set_theme(style="whitegrid")
@@ -54,3 +62,5 @@ replace_dict = {
 df3 = df3.replace(replace_dict)
 df3.value = pd.to_numeric(df3.value, errors='coerce')
 g2 = sns.catplot(data=df3, x='Question', y='value', hue='Order', kind='point')
+g2.set_xticklabels(num_people)
+g2.savefig('../figures/visibility_means.png',dpi=300)
