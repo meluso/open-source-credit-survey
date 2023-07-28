@@ -2,7 +2,7 @@
 """
 Created on Wed Feb  2 13:20:23 2022
 
-@author: Juango the Blue
+@author: John Meluso
 """
 
 import matplotlib.pyplot as plt
