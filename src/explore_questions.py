@@ -14,8 +14,44 @@ import seaborn as sns
 
 import util.fig_settings as fs
 import util.io as io
-import util.plot as up
 import util.variables as uv
+
+def plot_barh(question,dtype='numeric',layout='split',total=142,sort=False):
+    
+    # Load question group
+    question2group = uv.get_question_groups()
+    group = question2group[question]
+    
+    # Load data for group of variables
+    dtype2layout2df = io.load_survey_dict()
+    df = dtype2layout2df[dtype][layout].loc[:,group]
+    
+    # Load option definitions
+    optionDefs = uv.get_option_definitions()
+    
+    # Count fraction of people who responded with each item, and sort them
+    counts = df.sum()
+    if sort: counts = counts.sort_values()
+    percents = counts/total
+    
+    # Plot the counts
+    fig = plt.figure(dpi=300)
+    ax = fig.gca()
+    percents.plot(kind='barh', ax=ax)
+    
+    # Add title
+    ax.set_title(f'Variable: {question}')
+    
+    # Update labels
+    ax.xaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+    ax.set_yticklabels([optionDefs[index] for index in counts.index])
+    
+    # Remove borders
+    fs.set_border(ax, left=True)
+    
+    # Add grid
+    ax.grid(True)
+    ax.set_axisbelow(True)
 
 def plot_joint_multiselects(question1, question2):
     
@@ -77,57 +113,57 @@ def plot_project_artifact():
     '''Question 3: The following categories describe things that projects
     either create or work on. Which categories apply to the projects you 
     worked on? Select all that apply.'''
-    up.plot_multi(question='project_artifact', sort=True)
+    plot_barh(question='project_artifact', sort=True)
 
 def plot_project_useCase():
     '''Question 4: Projects create for different use cases. Which cases apply
     to the projects you worked on? Select all that apply.'''
-    up.plot_multi(question='project_useCase', sort=True)
+    plot_barh(question='project_useCase', sort=True)
 
 def plot_credit_freqFromProjects():
     '''Question 7: In the past two years, from how many projects did you
     receive credit for your tasks?'''
-    up.plot_multi(question='credit_freqFromProjects')
+    plot_barh(question='credit_freqFromProjects')
     
 def plot_credit_freqForTasks():
     '''Question 8: In the past two years, for how many of your tasks did you
     receive credit?'''
-    up.plot_multi(question='credit_freqForTasks')
+    plot_barh(question='credit_freqForTasks')
     
 def plot_credit_medium():
     '''Question 9: Projects give people credit for tasks through different
     mediums. Through what mediums did you receive credit? Select all
     that apply.'''
-    up.plot_multi(question='credit_medium', sort=True)
+    plot_barh(question='credit_medium', sort=True)
 
 def plot_satis_medium():
     '''Question 10: How satisfied are you with the mediums through which you
     received credit?'''
-    up.plot_multi(question='satis_medium')
+    plot_barh(question='satis_medium')
 
 def plot_freq_seenBy2():
     '''Question 11: How often did 2 or more people know that you performed
     those tasks?'''
-    up.plot_multi(question='freq_seenBy2')
+    plot_barh(question='freq_seenBy2')
 
 def plot_freq_seenBy1():
     '''Question 12: How often did 1 other person know that you performed
     those tasks?'''
-    up.plot_multi(question='freq_seenBy1')
+    plot_barh(question='freq_seenBy1')
     
 def plot_freq_seenBy0():
     '''Question 13: How often did nobody else know that you performed
     those tasks?'''
-    up.plot_multi(question='freq_seenBy0')
+    plot_barh(question='freq_seenBy0')
     
 def plot_satis_taskFreq():
     '''Question 14: How satisfied are you with how many of your tasks
     received credit?'''
-    up.plot_multi(question='satis_taskFreq')
+    plot_barh(question='satis_taskFreq')
 
 def plot_credit_importance():
     '''How important is it to you to receive credit for the tasks you do?'''
-    up.plot_multi(question='credit_importance')
+    plot_barh(question='credit_importance')
     
 
 if __name__ == '__main__':

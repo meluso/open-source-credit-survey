@@ -439,11 +439,31 @@ def get_variables_base():
     return baseVars
 
 
+def get_variables_categorical():
+
+    catVars = [
+        'project_artifact',
+        'project_useCase',
+        'credit_medium',
+        ]
+
+    return catVars
+
+
+def get_variables_text():
+
+    textVars = [
+        'text_whatDidWork',
+        'text_whatDidntWork',
+        'text_anythingElse'
+    ]
+
+    return textVars
+
+
 def get_variables_numeric():
 
     numericVars = [
-        'project_artifact',
-        'project_useCase',
         'credit_freqFromProjects',
         'credit_freqForTasks',
         'satis_medium',
