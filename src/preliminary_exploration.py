@@ -10,7 +10,7 @@ import pandas as pd
 import seaborn as sns
 
 
-file = '../data/raw/OSCS_20220629.csv'
+file = '../data/raw/OSCS_textUnified.csv'
 df = pd.read_csv(file)
 df = df.loc[2:,:]
 df.rename(columns={'Path1-LaborVisibility_DO':'Order'},inplace = True)

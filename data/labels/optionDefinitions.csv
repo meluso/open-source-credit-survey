@@ -1,0 +1,76 @@
+project_artifact_7,Hardware
+project_artifact_8,Operating systems
+project_artifact_9,Languages
+project_artifact_10,Frameworks
+project_artifact_17,Libraries
+project_artifact_11,Packages
+project_artifact_12,Applications
+project_artifact_13,Data science
+project_artifact_14,Scripts
+project_artifact_15,Web-related
+project_artifact_16,Something else
+project_useCase_4,Browsers
+project_useCase_5,Business & productivity applications
+project_useCase_6,Communication technologies
+project_useCase_7,Content management
+project_useCase_14,Education
+project_useCase_8,Entertainment
+project_useCase_9,Manufacturing
+project_useCase_10,Publishing
+project_useCase_11,Scientific research
+project_useCase_12,Software infrastructure
+project_useCase_13,Something else
+credit_medium_1,Automated metrics (e.g. GitHub Contributors)
+credit_medium_2,Project membership (e.g. GitHub Organizations)
+credit_medium_3,"Project documentation (e.g. acknowledgements lists, release notes)"
+credit_medium_4,"Standardized tools (e.g. All Contributors, CRediT)"
+credit_medium_5,"Social media (e.g. Twitter, Facebook)"
+credit_medium_6,"Blogs (e.g. Medium, personal websites)"
+credit_medium_7,"Presentations (e.g. talks, conferences)"
+credit_medium_8,Something else
+credit_medium_9,I'm not sure
+credit_freqFromProjects_1,1 - None of them
+credit_freqFromProjects_2,2 - Few of them
+credit_freqFromProjects_3,3 - Some of them
+credit_freqFromProjects_4,4 - Most of them
+credit_freqFromProjects_5,5 - All of them
+credit_freqFromProjects_6,I'm not sure
+credit_freqForTasks_1,1 - None of them
+credit_freqForTasks_2,2 - Few of them
+credit_freqForTasks_3,3 - Some of them
+credit_freqForTasks_4,4 - Most of them
+credit_freqForTasks_5,5 - All of them
+credit_freqForTasks_6,I'm not sure
+satis_medium_1,1 - Extremely dissatisfied
+satis_medium_2,2 - Dissatisfied
+satis_medium_3,3 - Neither satisfied nor dissatisfied
+satis_medium_4,4 - Satisfied
+satis_medium_5,5 - Extremely satisfied
+freq_seenBy2_17,1 - Never
+freq_seenBy2_18,2 - Rarely
+freq_seenBy2_19,3 - Sometimes
+freq_seenBy2_20,4 - Often
+freq_seenBy2_21,5 - Always
+freq_seenBy2_6,I'm not sure
+freq_seenBy1_1,1 - Never
+freq_seenBy1_2,2 - Rarely
+freq_seenBy1_3,3 - Sometimes
+freq_seenBy1_4,4 - Often
+freq_seenBy1_5,5 - Always
+freq_seenBy1_6,I'm not sure
+freq_seenBy0_1,1 - Never
+freq_seenBy0_2,2 - Rarely
+freq_seenBy0_3,3 - Sometimes
+freq_seenBy0_4,4 - Often
+freq_seenBy0_5,5 - Always
+freq_seenBy0_6,I'm not sure
+satis_taskFreq_1,1 - Extremely dissatisfied
+satis_taskFreq_2,2 - Dissatisfied
+satis_taskFreq_3,3 - Neither satisfied nor dissatisfied
+satis_taskFreq_4,4 - Satisfied
+satis_taskFreq_5,5 - Extremely satisfied
+credit_importance_28,1 - Not at all important
+credit_importance_29,2 - Slightly important
+credit_importance_30,3 - Moderately important
+credit_importance_31,4 - Very important
+credit_importance_32,5 - Extremely important
