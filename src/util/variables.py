@@ -6,6 +6,66 @@ Created on Fri Aug  4 16:04:32 2023
 """
 
 
+def get_variables_all():
+
+    allVars = [
+        'project_artifact',
+        'project_useCase',
+        'credit_freqFromProjects',
+        'credit_freqForTasks',
+        'credit_medium',
+        'satis_medium',
+        'freq_seenBy2',
+        'freq_seenBy1',
+        'freq_seenBy0',
+        'satis_taskFreq',
+        'credit_importance',
+        'text_whatDidWork',
+        'text_whatDidntWork',
+        'text_anythingElse'
+    ]
+
+    return allVars
+
+
+def get_variables_categorical():
+
+    catVars = [
+        'project_artifact',
+        'project_useCase',
+        'credit_medium',
+        ]
+
+    return catVars
+
+
+def get_variables_text():
+
+    textVars = [
+        'text_whatDidWork',
+        'text_whatDidntWork',
+        'text_anythingElse'
+    ]
+
+    return textVars
+
+
+def get_variables_numeric():
+
+    numericVars = [
+        'credit_freqFromProjects',
+        'credit_freqForTasks',
+        'satis_medium',
+        'freq_seenBy2',
+        'freq_seenBy1',
+        'freq_seenBy0',
+        'satis_taskFreq',
+        'credit_importance'
+    ]
+
+    return numericVars
+
+
 def get_variables():
 
     variables = {
@@ -413,68 +473,14 @@ def get_variable_dtypes():
 
 def get_variable_names():
     variables = get_variables()
-    dtypes = {key: variables[key]['name'] for key in variables.keys()}
-    return dtypes
+    names = {key: variables[key]['name'] for key in variables.keys()}
+    return names
 
 
-def get_variables_base():
-
-    baseVars = [
-        'project_artifact',
-        'project_useCase',
-        'credit_freqFromProjects',
-        'credit_freqForTasks',
-        'credit_medium',
-        'satis_medium',
-        'freq_seenBy2',
-        'freq_seenBy1',
-        'freq_seenBy0',
-        'satis_taskFreq',
-        'credit_importance',
-        'text_whatDidWork',
-        'text_whatDidntWork',
-        'text_anythingElse'
-    ]
-
-    return baseVars
-
-
-def get_variables_categorical():
-
-    catVars = [
-        'project_artifact',
-        'project_useCase',
-        'credit_medium',
-        ]
-
-    return catVars
-
-
-def get_variables_text():
-
-    textVars = [
-        'text_whatDidWork',
-        'text_whatDidntWork',
-        'text_anythingElse'
-    ]
-
-    return textVars
-
-
-def get_variables_numeric():
-
-    numericVars = [
-        'credit_freqFromProjects',
-        'credit_freqForTasks',
-        'satis_medium',
-        'freq_seenBy2',
-        'freq_seenBy1',
-        'freq_seenBy0',
-        'satis_taskFreq',
-        'credit_importance'
-    ]
-
-    return numericVars
+def get_variable_questions():
+    variables = get_variables()
+    questions = {key: variables[key]['question'] for key in variables.keys()}
+    return questions
 
 
 def get_question_groups():
@@ -586,11 +592,11 @@ def get_question_groups():
 def get_option_definitions():
 
     optionDefinitions = {
-        'project_artifact': 'Type of artifact worked on',
-        'project_useCase': 'Use Case of Projects',
+        'project_artifact': 'Artifacts worked on',
+        'project_useCase': 'Use cases of projects',
         'credit_medium': 'Credit medium',
-        'credit_freqFromProjects': 'Credit frequency, from projects',
-        'credit_freqForTasks': 'Credit frequency, for tasks',
+        'credit_freqFromProjects': 'Credit from projects, frequency',
+        'credit_freqForTasks': 'Credit for tasks, frequency',
         'satis_medium': 'Satisfaction with credit medium',
         'freq_seenBy2': 'Seen by 2 or more people, frequency',
         'freq_seenBy1': 'Seen by 1 other person, frequency',
@@ -629,54 +635,56 @@ def get_option_definitions():
         'credit_medium_7': 'Presentations (e.g. talks, conferences)',
         'credit_medium_8': 'Something else',
         'credit_medium_9': "I'm not sure",
-        'credit_freqFromProjects_1': '1 - None of them',
-        'credit_freqFromProjects_2': '2 - Few of them',
-        'credit_freqFromProjects_3': '3 - Some of them',
-        'credit_freqFromProjects_4': '4 - Most of them',
-        'credit_freqFromProjects_5': '5 - All of them',
+        'credit_freqFromProjects_1': 'None of them - 1',
+        'credit_freqFromProjects_2': 'Few of them - 2',
+        'credit_freqFromProjects_3': 'Some of them - 3',
+        'credit_freqFromProjects_4': 'Most of them - 4',
+        'credit_freqFromProjects_5': 'All of them - 5',
         'credit_freqFromProjects_6': "I'm not sure",
-        'credit_freqForTasks_1': '1 - None of them',
-        'credit_freqForTasks_2': '2 - Few of them',
-        'credit_freqForTasks_3': '3 - Some of them',
-        'credit_freqForTasks_4': '4 - Most of them',
-        'credit_freqForTasks_5': '5 - All of them',
+        'credit_freqForTasks_1': 'None of them - 1',
+        'credit_freqForTasks_2': 'Few of them - 2',
+        'credit_freqForTasks_3': 'Some of them - 3',
+        'credit_freqForTasks_4': 'Most of them - 4',
+        'credit_freqForTasks_5': 'All of them - 5',
         'credit_freqForTasks_6': "I'm not sure",
-        'satis_medium_1': '1 - Extremely dissatisfied',
-        'satis_medium_2': '2 - Dissatisfied',
-        'satis_medium_3': '3 - Neither satisfied nor dissatisfied',
-        'satis_medium_4': '4 - Satisfied',
-        'satis_medium_5': '5 - Extremely satisfied',
-        'freq_seenBy2_17': '1 - Never',
-        'freq_seenBy2_18': '2 - Rarely',
-        'freq_seenBy2_19': '3 - Sometimes',
-        'freq_seenBy2_20': '4 - Often',
-        'freq_seenBy2_21': '5 - Always',
+        'satis_medium_1': 'Extremely dissatisfied - 1',
+        'satis_medium_2': 'Dissatisfied - 2',
+        'satis_medium_3': 'Neither sat. nor dissat. - 3',
+        'satis_medium_4': 'Satisfied - 4',
+        'satis_medium_5': 'Extremely satisfied - 5',
+        'freq_seenBy2_17': 'Never - 1',
+        'freq_seenBy2_18': 'Rarely - 2',
+        'freq_seenBy2_19': 'Sometimes - 3',
+        'freq_seenBy2_20': 'Often - 4',
+        'freq_seenBy2_21': 'Always - 5',
         'freq_seenBy2_6': "I'm not sure",
-        'freq_seenBy1_1': '1 - Never',
-        'freq_seenBy1_2': '2 - Rarely',
-        'freq_seenBy1_3': '3 - Sometimes',
-        'freq_seenBy1_4': '4 - Often',
-        'freq_seenBy1_5': '5 - Always',
+        'freq_seenBy1_1': 'Never - 1',
+        'freq_seenBy1_2': 'Rarely - 2',
+        'freq_seenBy1_3': 'Sometimes - 3',
+        'freq_seenBy1_4': 'Often - 4',
+        'freq_seenBy1_5': 'Always - 5',
         'freq_seenBy1_6': "I'm not sure",
-        'freq_seenBy0_1': '1 - Never',
-        'freq_seenBy0_2': '2 - Rarely',
-        'freq_seenBy0_3': '3 - Sometimes',
-        'freq_seenBy0_4': '4 - Often',
-        'freq_seenBy0_5': '5 - Always',
+        'freq_seenBy0_1': 'Never - 1',
+        'freq_seenBy0_2': 'Rarely - 2',
+        'freq_seenBy0_3': 'Sometimes - 3',
+        'freq_seenBy0_4': 'Often - 4',
+        'freq_seenBy0_5': 'Always - 5',
         'freq_seenBy0_6': "I'm not sure",
-        'satis_taskFreq_1': '1 - Extremely dissatisfied',
-        'satis_taskFreq_2': '2 - Dissatisfied',
-        'satis_taskFreq_3': '3 - Neither satisfied nor dissatisfied',
-        'satis_taskFreq_4': '4 - Satisfied',
-        'satis_taskFreq_5': '5 - Extremely satisfied',
-        'credit_importance_28': '1 - Not at all important',
-        'credit_importance_29': '2 - Slightly important',
-        'credit_importance_30': '3 - Moderately important',
-        'credit_importance_31': '4 - Very important',
-        'credit_importance_32': '5 - Extremely important',
+        'satis_taskFreq_1': 'Extremely dissatisfied - 1',
+        'satis_taskFreq_2': 'Dissatisfied - 2',
+        'satis_taskFreq_3': 'Neither sat. nor dissat. - 3',
+        'satis_taskFreq_4': 'Satisfied - 4',
+        'satis_taskFreq_5': 'Extremely satisfied - 5',
+        'credit_importance_28': 'Not at all important - 1',
+        'credit_importance_29': 'Slightly important - 2',
+        'credit_importance_30': 'Moderately important - 3',
+        'credit_importance_31': 'Very important - 4',
+        'credit_importance_32': 'Extremely important - 5',
         'order_Q28': 'Path 1 - Labor Visibility - Display Order - Q28',
         'order_Q13': 'Path 1 - Labor Visibility - Display Order - Q13',
         'order_Q12': 'Path 1 - Labor Visibility - Display Order - Q12',
         'order_Q11': 'Path 1 - Labor Visibility - Display Order - Q11'
     }
     return optionDefinitions
+    
+    

@@ -16,7 +16,7 @@ import util.fig_settings as fs
 import util.io as io
 import util.variables as uv
 
-def plot_barh(question,dtype='numeric',layout='split',total=142,sort=False):
+def barh(question,dtype='numeric',layout='split',total=142,sort=False):
     
     # Load question group
     question2group = uv.get_question_groups()
@@ -53,7 +53,7 @@ def plot_barh(question,dtype='numeric',layout='split',total=142,sort=False):
     ax.grid(True)
     ax.set_axisbelow(True)
 
-def plot_joint_multiselects(question1, question2):
+def joint_multiselects(question1, question2):
     
     # Set a couple variables
     dtype = 'numeric'
@@ -113,57 +113,57 @@ def plot_project_artifact():
     '''Question 3: The following categories describe things that projects
     either create or work on. Which categories apply to the projects you 
     worked on? Select all that apply.'''
-    plot_barh(question='project_artifact', sort=True)
+    barh(question='project_artifact', sort=True)
 
 def plot_project_useCase():
     '''Question 4: Projects create for different use cases. Which cases apply
     to the projects you worked on? Select all that apply.'''
-    plot_barh(question='project_useCase', sort=True)
+    barh(question='project_useCase', sort=True)
 
 def plot_credit_freqFromProjects():
     '''Question 7: In the past two years, from how many projects did you
     receive credit for your tasks?'''
-    plot_barh(question='credit_freqFromProjects')
+    barh(question='credit_freqFromProjects')
     
 def plot_credit_freqForTasks():
     '''Question 8: In the past two years, for how many of your tasks did you
     receive credit?'''
-    plot_barh(question='credit_freqForTasks')
+    barh(question='credit_freqForTasks')
     
 def plot_credit_medium():
     '''Question 9: Projects give people credit for tasks through different
     mediums. Through what mediums did you receive credit? Select all
     that apply.'''
-    plot_barh(question='credit_medium', sort=True)
+    barh(question='credit_medium', sort=True)
 
 def plot_satis_medium():
     '''Question 10: How satisfied are you with the mediums through which you
     received credit?'''
-    plot_barh(question='satis_medium')
+    barh(question='satis_medium')
 
 def plot_freq_seenBy2():
     '''Question 11: How often did 2 or more people know that you performed
     those tasks?'''
-    plot_barh(question='freq_seenBy2')
+    barh(question='freq_seenBy2')
 
 def plot_freq_seenBy1():
     '''Question 12: How often did 1 other person know that you performed
     those tasks?'''
-    plot_barh(question='freq_seenBy1')
+    barh(question='freq_seenBy1')
     
 def plot_freq_seenBy0():
     '''Question 13: How often did nobody else know that you performed
     those tasks?'''
-    plot_barh(question='freq_seenBy0')
+    barh(question='freq_seenBy0')
     
 def plot_satis_taskFreq():
     '''Question 14: How satisfied are you with how many of your tasks
     received credit?'''
-    plot_barh(question='satis_taskFreq')
+    barh(question='satis_taskFreq')
 
 def plot_credit_importance():
     '''How important is it to you to receive credit for the tasks you do?'''
-    plot_barh(question='credit_importance')
+    barh(question='credit_importance')
     
 
 if __name__ == '__main__':
@@ -175,7 +175,7 @@ if __name__ == '__main__':
     plot_project_useCase()
     
     # Q3 & Q4 Joint
-    # plot_joint_multiselects('project_artifact', 'project_useCase')
+    # joint_multiselects('project_artifact', 'project_useCase')
     
     # Question 7
     plot_credit_freqFromProjects()
