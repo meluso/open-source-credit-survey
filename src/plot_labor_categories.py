@@ -108,7 +108,7 @@ def plot_categorical(save=True, sort=True):
         ax.set_axisbelow(True)
         
     # Save the plot
-    if save: fs.save_publication_fig('categorical', bbox_inches='tight')
+    if save: fs.save_publication_fig('labor_categories', bbox_inches='tight')
 
 if __name__ == '__main__':
     plot_categorical(save=True)

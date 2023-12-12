@@ -50,7 +50,7 @@ def fig_size(frac_width,frac_height,n_cols=1,n_rows=1):
     return (width,height)
 
 def get_formats():
-    return ['eps','jpg','pdf','png','tif']
+    return ['eps','jpg','pdf','png']
 
 def set_border(ax, top=False, bottom=False, left=False, right=False):
     ax.spines['top'].set_visible(top)

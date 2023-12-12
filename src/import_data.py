@@ -58,8 +58,8 @@ def ingest_survey_data():
             
             # Replace order strings with text
             df = df.replace({
-                'Q28|Q11|Q12|Q13':'Decreasing (2,1,0)',
-                'Q28|Q13|Q12|Q11':'Increasing (0,1,2)'
+                'Q28|Q11|Q12|Q13':'Decreasing ($\geq$2,1,0)',
+                'Q28|Q13|Q12|Q11':'Increasing (0,1,$\geq$2)'
                 })
             
         

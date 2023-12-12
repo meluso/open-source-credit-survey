@@ -18,7 +18,7 @@ import util.variables as uv
 
 fs.set_fonts()    
     
-def plot_numeric_01(baseVar='credit_freqFromProjects', save=True):
+def plot_compensation(baseVar='credit_freqFromProjects', save=True):
     
     # Define numeric variables group 01
     numVars = [
@@ -113,8 +113,8 @@ def plot_numeric_01(baseVar='credit_freqFromProjects', save=True):
                title_fontsize=8, alignment='center', bbox_to_anchor=(0, 0.5))
     
     # Save the plot!
-    if save: fs.save_publication_fig('numeric_01', bbox_inches='tight')
+    if save: fs.save_publication_fig('compensation', bbox_inches='tight')
         
     
 if __name__ == '__main__':
-    plot_numeric_01()
+    plot_compensation()
