@@ -45,8 +45,8 @@ def plot_compensation(baseVar='credit_freqFromProjects', save=True):
     optionDefs = uv.get_option_definitions()
     
     # Create a figure with 4 axes
-    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=fs.fig_size(1, 0.3),
-                            layout='tight', sharex=True)
+    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=fs.fig_size(1, 0.4),
+                            layout='tight', sharex=True, sharey='row')
     
     # Generate color palette
     colors = sns.color_palette('mako_r', n_colors=5).as_hex()
@@ -110,7 +110,7 @@ def plot_compensation(baseVar='credit_freqFromProjects', save=True):
     labels = ['1 - None of them', '2 - Few of them', '3 - Some of them',
               '4 - Most of them', '5 - All of them', "I'm not sure"]
     fig.legend(handles, labels, loc='center right', title=title,
-               title_fontsize=8, alignment='center', bbox_to_anchor=(0, 0.5))
+               title_fontsize=10, alignment='center', bbox_to_anchor=(0, 0.5))
     
     # Save the plot!
     if save: fs.save_publication_fig('compensation', bbox_inches='tight')

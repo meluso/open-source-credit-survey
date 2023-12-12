@@ -343,7 +343,7 @@ def plot_distributions(subfig):
 def plot_visibility_orders(save=True):
         
     # Create base figure and grid
-    fig = plt.figure(figsize=fs.fig_size(1, 0.35), layout='constrained')
+    fig = plt.figure(figsize=fs.fig_size(1, 0.4), layout='constrained')
     subfigs = fig.subfigures(nrows=1, ncols=2, wspace=0.05)
     
     # Create the distributions figure on the right, without a legend

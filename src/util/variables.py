@@ -616,7 +616,7 @@ def get_option_definitions():
         'project_artifact_15': 'Web-related',
         'project_artifact_16': 'Something else',
         'project_useCase_4': 'Browsers',
-        'project_useCase_5': 'Business & productivity applications',
+        'project_useCase_5': 'Bus. & productivity applic.',
         'project_useCase_6': 'Communication technologies',
         'project_useCase_7': 'Content management',
         'project_useCase_14': 'Education',

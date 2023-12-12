@@ -104,7 +104,7 @@ def plot_correlation():
     ax = sns.heatmap(corr,
         mask=mask_signif, center=0, cmap=cmap, square=True, ax=ax, 
         linewidths=0.5, annot=corr, vmin=-0.85, vmax=0.85, fmt='.2f', 
-        cbar_kws={"shrink": 0.7}, annot_kws={'size': 8}
+        cbar_kws={"shrink": 1}, annot_kws={'size': 8}
         )
     
     # Draw a second heatmap (for convience) with all grayed out insignificants

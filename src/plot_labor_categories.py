@@ -39,7 +39,7 @@ def plot_categorical(save=True, sort=True):
     
     # Plot the counts
     fig, axs = plt.subplots(nrows=1, ncols=len(questions),
-                            figsize=fs.fig_size(1, 0.2), layout='constrained')
+                            figsize=fs.fig_size(1, 0.25), layout='constrained')
     
     # Generate color palette and select the color for all bars
     colors = sns.color_palette('mako_r', n_colors=5).as_hex()
@@ -73,11 +73,11 @@ def plot_categorical(save=True, sort=True):
         cutoff = 0.10
         labelGroups = {
             'large': (
-                -11,
+                -15,
                 [f'{100*p:.0f}%' if p >= cutoff else '' for p in percents]
                 ),
             'small': (
-                -8,
+                -10,
                 [f'{100*p:.0f}%' if p < cutoff else '' for p in percents]
                 )
             }
@@ -88,7 +88,7 @@ def plot_categorical(save=True, sort=True):
                 bars,
                 labels=labels,
                 color='#FFFFFF',
-                size=6,
+                size=8,
                 padding=padding,
                 fontweight='bold'
                 )
