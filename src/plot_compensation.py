@@ -24,8 +24,8 @@ def plot_compensation(baseVar='credit_freqFromProjects', save=True):
     numVars = [
         'credit_freqFromProjects',
         'credit_freqForTasks',
-        'satis_medium',
-        'satis_taskFreq'
+        'satis_taskFreq',
+        'satis_medium'
     ]
     
     # Total number of survey responses
@@ -55,6 +55,9 @@ def plot_compensation(baseVar='credit_freqFromProjects', save=True):
     # Create the base variables for comparison
     dfBase = df.loc[:,question2group[baseVar]]
     
+    # Create a dictionary for storing percent and sum info
+    summary = {'percents': {}, 'sums': {}}
+    
     # Cycle through axes (flat) and populate them for each variable
     for var, ax, letter in zip(numVars, axs.flat, ascii_lowercase):
         
@@ -64,6 +67,7 @@ def plot_compensation(baseVar='credit_freqFromProjects', save=True):
         # Slice down data to variable subset
         subset = df.loc[:,group]
         
+        sums = []
         percents = []
         
         # Loop through the base variables and colors
@@ -72,11 +76,17 @@ def plot_compensation(baseVar='credit_freqFromProjects', save=True):
             # Count the overlap between the base variables and this var
             data = subset.multiply(dfBase.loc[:,bv], axis=0)
             
-            # Get the fraction of respondents who gave each response
+            # Get the count and fraction of respondents who gave each response
+            sums.append(data.sum())
             percents.append(data.sum()/total)
             
-        # Turn percents into a dataframe
-        percents = pd.concat(percents, axis=1, keys=dfBase.columns)
+        # Turn sums and percents into dataframes
+        sums = pd.concat(sums, axis=1, keys=subset.columns)
+        percents = pd.concat(percents, axis=1, keys=subset.columns)
+        
+        # Sum and append eahch to the summary dictionary
+        summary['sums'][var] = sums.sum(axis=1)
+        summary['percents'][var] = percents.sum(axis=1)
         
         # Plot the mean and standard deviation
         statsColor = '#222222'
@@ -114,7 +124,9 @@ def plot_compensation(baseVar='credit_freqFromProjects', save=True):
     
     # Save the plot!
     if save: fs.save_publication_fig('compensation', bbox_inches='tight')
+    
+    return summary, stats
         
     
 if __name__ == '__main__':
-    plot_compensation()
+    summary, stats = plot_compensation()

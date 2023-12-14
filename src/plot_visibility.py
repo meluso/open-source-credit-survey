@@ -187,7 +187,7 @@ def plot_means(subfig, otherHandles):
         ydata = line.get_ydata()
         
         # Specify arrow direction
-        if oo == 'Decreasing ($\geq$2,1,0)':
+        if oo == 'Visibility ($\geq$2,1,0)':
             start = 18/24
             end = 19/24
         else:
@@ -212,10 +212,10 @@ def plot_means(subfig, otherHandles):
             )
     
     # Add title
-    ax.set_title(f'(a) Response means by question presentation order')
+    ax.set_title(f'(a) Response means by visibility anchoring')
         
     # Set the x limits
-    ax.set_xlim((1.5,4.5))
+    ax.set_xlim((1.8,4.2))
     ax.set_ylim((-0.25,2.25))
         
     # Update x labels
@@ -230,9 +230,9 @@ def plot_means(subfig, otherHandles):
     ax.yaxis.set_major_locator(mtick.FixedLocator(range(len(numVars))))
     ax.set_yticklabels(
         labels=[
-            'Seen by\n0 other\npeople',
-            'Seen by\n1 other\nperson',
-            'Seen by\n2 other\npeople'
+            'Invisible\n(0 people)',
+            'Mostly\nInvisible\n(1 person)',
+            'Visible\n($\geq2$ people)'
             ]
         )        
         
@@ -248,8 +248,9 @@ def plot_means(subfig, otherHandles):
     handles = [(th,oh) for th,oh in zip(theseHandles, otherHandles)]
     
     # Now create the legend
-    axLegend.legend(handles, labels, ncols=2,
-                    handler_map={tuple: HandlerTuple(ndivide=None)})
+    axLegend.legend(handles, labels, ncols=2, title='Anchored to...',
+                    handler_map={tuple: HandlerTuple(ndivide=None)},
+                    loc='lower center', columnspacing=1, labelspacing=0.25)
     fs.set_border(axLegend)
     axLegend.tick_params(axis='both',which='both',bottom=False,left=False)
     axLegend.set_xticklabels([])
@@ -344,7 +345,7 @@ def plot_visibility_orders(save=True):
         
     # Create base figure and grid
     fig = plt.figure(figsize=fs.fig_size(1, 0.4), layout='constrained')
-    subfigs = fig.subfigures(nrows=1, ncols=2, wspace=0.05)
+    subfigs = fig.subfigures(nrows=1, ncols=2, wspace=0)
     
     # Create the distributions figure on the right, without a legend
     handles = plot_distributions(subfigs[1])

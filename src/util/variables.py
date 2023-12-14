@@ -603,7 +603,7 @@ def get_option_definitions():
         'freq_seenBy0': 'Seen by 0 other people',
         'satis_taskFreq': 'Satisfaction with credit frequency',
         'credit_importance': 'Importance of receiving credit',
-        'order': 'Increasing visibility presentation (0, 1, $\geq$2 people)',
+        'order': 'Anchored to Invisibility (0, 1, $\geq$2 people)',
         'project_artifact_7': 'Hardware',
         'project_artifact_8': 'Operating systems',
         'project_artifact_9': 'Languages',
