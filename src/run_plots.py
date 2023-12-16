@@ -9,7 +9,7 @@ import plot_labor_categories as plc
 import plot_compensation as pcomp
 import plot_visibility as pv
 import plot_correlation as pcorr
-import plot_importance_regression as pir
+import plot_variable_relationships as pvr
 
 
 def run_plots():
@@ -27,7 +27,7 @@ def run_plots():
     pcorr.plot_correlation()
     
     # Create figure 5
-    pir.plot_importance_regression()
+    pvr.plot_variable_relationships()
 
 
 if __name__ == '__main__':

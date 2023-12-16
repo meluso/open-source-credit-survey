@@ -231,7 +231,7 @@ def plot_means(subfig, otherHandles):
     ax.set_yticklabels(
         labels=[
             'Invisible\n(0 people)',
-            'Mostly\nInvisible\n(1 person)',
+            'Nearly\nInvisible\n(1 person)',
             'Visible\n($\geq2$ people)'
             ]
         )        
@@ -248,13 +248,18 @@ def plot_means(subfig, otherHandles):
     handles = [(th,oh) for th,oh in zip(theseHandles, otherHandles)]
     
     # Now create the legend
-    axLegend.legend(handles, labels, ncols=2, title='Anchored to...',
-                    handler_map={tuple: HandlerTuple(ndivide=None)},
-                    loc='lower center', columnspacing=1, labelspacing=0.25)
+    legend = axLegend.legend(handles, labels,
+                             handler_map={tuple: HandlerTuple(ndivide=None)},
+                             loc='lower right', columnspacing=1,
+                             labelspacing=0.2, frameon=False,
+                             )
     fs.set_border(axLegend)
     axLegend.tick_params(axis='both',which='both',bottom=False,left=False)
     axLegend.set_xticklabels([])
     axLegend.set_yticklabels([])
+    
+    # Adjust legend title
+    title = axLegend.text(x=0, y=0.5, s='Anchored to...')
 
 
 def plot_distributions(subfig):
