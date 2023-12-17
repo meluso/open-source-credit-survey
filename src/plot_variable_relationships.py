@@ -95,7 +95,7 @@ def plot_visibility_vs_credit(ax):
         ]))
     
     # Set labels
-    ax.set_title('(a) Correlation: Visibility vs. Credit Frequency')
+    ax.set_title('(a) Correlation: Visibility vs. credit frequency')
     ax.set_xlabel('Average Credit Frequency')
     ax.set_ylabel('Average Visibility')
         
@@ -164,7 +164,7 @@ def plot_importance_regression(ax):
         ))
     
     # Update axis labels
-    ax.set_title('(b) Regression: Importance on Question Order')
+    ax.set_title('(b) Regression: Credit importance on question order', loc='right')
     ax.set_xlabel('Visibility Question Order')
     ax.set_ylabel('Credit Importance')
     

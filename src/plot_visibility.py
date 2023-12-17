@@ -103,7 +103,7 @@ def setup_figure(nrows, subfig, **kwds):
     return fig, axs
 
 
-def plot_means(subfig, otherHandles):
+def plot_means(subfig, otherHandles, overall_mean=False):
     
     # Load the variables, dataframe, dictionaries
     numVars, total, question2group, dtype2layout2df, statsDf, stats, \
@@ -141,6 +141,7 @@ def plot_means(subfig, otherHandles):
         ciLo, ciHi = ua.conf_int_mean(answers)
         order2statDf['overall'].loc[var,'ciLo'] = ciLo
         order2statDf['overall'].loc[var,'ciHi'] = ciHi
+        print(f'({var},overall):\t\t{ciLo:.3}, {answers.mean():.3}, {ciHi:.3}')
         
         # Loop through the order options
         for oo in orderOpts:
@@ -156,8 +157,10 @@ def plot_means(subfig, otherHandles):
             ciLo, ciHi = ua.conf_int_mean(subset.dropna())
             order2statDf[oo].loc[var,'ciLo'] = ciLo
             order2statDf[oo].loc[var,'ciHi'] = ciHi
+            print(f'({var},{oo}):\t\t{ciLo:.3}, {subset.mean():.3}, {ciHi:.3}')
         
-    # Create a dictionary for saving 
+    # Set alpha
+    alpha = 1
             
     # Loop through the orders for plotting
     for ii, (oo, color) in enumerate(zip(orderOpts, colors)):
@@ -171,7 +174,7 @@ def plot_means(subfig, otherHandles):
             )
             
         # Plot the means on the axes
-        lines = ax.plot(x, y, label=oo, color=color, marker='.', ms=10, zorder=3)
+        lines = ax.plot(x, y, label=oo, color=color, marker='.', ms=10, zorder=3, alpha=alpha)
         
         # Plot the confidence intervals on the axes
         ax.errorbar(
@@ -179,6 +182,7 @@ def plot_means(subfig, otherHandles):
             xerr=xerr,
             color=color,
             capsize=5,
+            alpha=alpha
             )
         
         # Get line and xdata for adding arrows
@@ -207,8 +211,30 @@ def plot_means(subfig, otherHandles):
             line.axes.annotate('',
                 xytext=(xStart, yStart),
                 xy=(xEnd, yEnd),
-                arrowprops=dict(arrowstyle="->", color=line.get_color()),
+                arrowprops=dict(arrowstyle="->", color=line.get_color(), alpha=alpha),
                 size=15
+            )
+    
+    # Plot overall means
+    if overall_mean:
+        
+        oo = 'overall'
+        x = order2statDf[oo]['mean']
+        y = np.array([2,1,0])
+        xerr = (
+            order2statDf[oo]['mean'] - order2statDf[oo]['ciLo'],
+            order2statDf[oo]['ciHi'] - order2statDf[oo]['mean']
+            )
+            
+        # Plot the means on the axes
+        lines = ax.plot(x, y, label=oo, color=colors[2], marker='.', ms=10, zorder=3)
+        
+        # Plot the confidence intervals on the axes
+        ax.errorbar(
+            x, y,
+            xerr=xerr,
+            color=colors[2],
+            capsize=5,
             )
     
     # Add title
@@ -231,7 +257,7 @@ def plot_means(subfig, otherHandles):
     ax.set_yticklabels(
         labels=[
             'Invisible\n(0 people)',
-            'Nearly\nInvisible\n(1 person)',
+            'Partially\nVisible\n(1 person)',
             'Visible\n($\geq2$ people)'
             ]
         )        

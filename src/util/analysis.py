@@ -22,5 +22,11 @@ def calc_weighted_visibility(df):
     denominator = df['freq_seenBy0'] + df['freq_seenBy1'] + df['freq_seenBy2']
     return numerator/denominator
 
+def calc_mean_credit(df):
+    numerator = 0*df['freq_seenBy0'] + 0.5*df['freq_seenBy1'] \
+        + 1*df['freq_seenBy2']
+    denominator = df['freq_seenBy0'] + df['freq_seenBy1'] + df['freq_seenBy2']
+    return numerator/denominator
+
 def normalize_columns(df):
     return (df-df.min())/(df.max()-df.min())
