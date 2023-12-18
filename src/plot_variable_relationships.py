@@ -33,9 +33,6 @@ def plot_visibility_vs_credit(ax):
         'freq_seenBy2': 6,
         'credit_importance': nan
         }
-        
-    # Load question group
-    question2group = uv.get_question_groups()
     
     # Generate color palette
     colors = sns.color_palette('mako_r', n_colors=2).as_hex()
@@ -58,9 +55,6 @@ def plot_visibility_vs_credit(ax):
     corr = df[['visibility_mean','credit_mean']].corr()\
         .loc['visibility_mean','credit_mean']
     print(f'Visibility-Credit Correlation: r={corr:.2}')
-    
-    # Import variable (option) definitions
-    names = uv.get_option_definitions()
     
     # Create regression plot
     sns.regplot(
