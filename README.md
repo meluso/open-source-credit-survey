@@ -1,5 +1,4 @@
   # Invisible Labor in Open Source Software Ecosystems
-  ## Corresponding Dataset & Code
 
   This repository contains the data and analysis code for the open source software credit survey which measured labor visibility and attribution in open source software ecosystems.
 
