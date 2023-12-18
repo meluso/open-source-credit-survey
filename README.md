@@ -6,7 +6,7 @@
   - Preprint:
   - Published: 
 
-  The coauthors of this work performed the following tasks (following the [CredIT Taxonomy](https://www.nature.com/articles/508312a/tables/1)):
+  The coauthors of this work performed the following tasks (following the [CRediT Taxonomy](https://www.nature.com/articles/508312a/tables/1)):
   - Study conception: John Meluso
   - Methodology: John Meluso, Amanda Casari, Katie McLaughlin, Milo Trujillo, Jean-Gabriel Young
   - Formal analysis: John Meluso
