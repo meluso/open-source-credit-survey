@@ -54,6 +54,11 @@ def plot_visibility_vs_credit(ax):
     df['visibility_mean'] = ua.calc_weighted_visibility(df)
     df['credit_mean'] = (df['credit_freqForTasks'] + df['credit_freqFromProjects'])/2
     
+    # Calculate correlation between average visibility and average credit
+    corr = df[['visibility_mean','credit_mean']].corr()\
+        .loc['visibility_mean','credit_mean']
+    print(f'Visibility-Credit Correlation: r={corr:.2}')
+    
     # Import variable (option) definitions
     names = uv.get_option_definitions()
     
