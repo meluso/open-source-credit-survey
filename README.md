@@ -14,6 +14,6 @@
   - Data curation: John Meluso
   - Writing/manuscript preparation (writing the initial draft): John Meluso
   - Writing/manuscript preparation (critical review, commentary or revision): Amanda Casari, Katie McLaughlin, Milo Trujillo, Jean-Gabriel Young
-  - Writing/manuscript preparation (visualization/data presentation): John Meluso
+  - Writing/manuscript preparation (visualization/data presentation): John Meluso, Milo Trujillo
   - Project administration: John Meluso
   - Funding acquisition: Amanda Casari
