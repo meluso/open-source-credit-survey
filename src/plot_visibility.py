@@ -256,9 +256,9 @@ def plot_means(subfig, otherHandles, overall_mean=False):
     ax.yaxis.set_major_locator(mtick.FixedLocator(range(len(numVars))))
     ax.set_yticklabels(
         labels=[
-            'Invisible\n(0 people)',
+            'Not Visible\n(0 people)',
             'Partially\nVisible\n(1 person)',
-            'Visible\n($\geq2$ people)'
+            'Fully Visible\n($\geq2$ people)'
             ]
         )        
         
@@ -285,7 +285,7 @@ def plot_means(subfig, otherHandles, overall_mean=False):
     axLegend.set_yticklabels([])
     
     # Adjust legend title
-    title = axLegend.text(x=0, y=0.5, s='Anchored to...')
+    title = axLegend.text(x=-0.05, y=0.5, s='Anchored to...')
 
 
 def plot_distributions(subfig):
@@ -346,7 +346,7 @@ def plot_distributions(subfig):
                 )
         
         # Add title
-        ax.set_title(f'({letter}) Response distribution: {optionDefs[var]}')
+        ax.set_title(f'({letter}) Response distrib.: {optionDefs[var]}')
         
         # Set y limits
         ax.set_ylim((0,0.22))

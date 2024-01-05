@@ -86,11 +86,11 @@ def plot_visibility_vs_credit(ax):
         [0,0.25,0.5,0.75,1]
         ))
     ax.yaxis.set_major_formatter(ticker.FixedFormatter([
-        'Invisible - 0',
+        'Not Visible - 0',
         '',
         '0.5',
         '',
-        'Visible - 1'
+        'Fully Visible - 1'
         ]))
     
     # Set labels
@@ -150,10 +150,11 @@ def plot_importance_regression(ax):
     # Set ticks
     
     # Update ticks & labels
+    ax.text(s='Anchored to...', x=-1, y=-0.25)
     ax.xaxis.set_major_locator(ticker.FixedLocator(range(2)))
     ax.xaxis.set_major_formatter(ticker.FixedFormatter([
-        'Anchored to Visibility\n($\geq$2, 1, 0 people)\n',
-        'Anchored to Invisibility\n(0, 1, $\geq$2 people)\n'
+        'High Visibility\n($\geq$2, 1, 0 people)\n',
+        'Low Visibility\n(0, 1, $\geq$2 people)\n'
         ]))
     ax.yaxis.set_major_locator(ticker.FixedLocator(
         [0,0.25,0.5,0.75,1]
