@@ -231,7 +231,7 @@ def plot_visibility_credit(ax):
     ax.yaxis.set_major_formatter(ticker.PercentFormatter(1))
     
     # Add title
-    ax.set_title('(b) In Open Source Ecosys.', size=14)
+    ax.set_title('(b) In Open Source Ecosystems', size=14)
         
     # Remove borders
     fs.set_border(ax, left=True)
