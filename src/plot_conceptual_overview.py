@@ -214,10 +214,11 @@ def plot_visibility_credit(ax):
     # Add cap labels
     ax.bar_label(
         container=bar,
-        labels=('','2 in 3','','9 in 10'),
+        labels=('','2 in 3 People','','9 in 10 People'),
         color='#222222',
         label_type='edge',
-        size=12
+        size=12,
+        padding=3
         )
     
     # Set x tick formats
@@ -230,7 +231,7 @@ def plot_visibility_credit(ax):
     ax.yaxis.set_major_formatter(ticker.PercentFormatter(1))
     
     # Add title
-    ax.set_title('(b) Projects In Open Source Ecosys.', size=14)
+    ax.set_title('(b) In Open Source Ecosys.', size=14)
         
     # Remove borders
     fs.set_border(ax, left=True)
