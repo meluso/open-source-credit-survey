@@ -168,7 +168,7 @@ def plot_visibility_credit(ax):
         n_colors=4, reverse=True).as_hex()
     invis_barColors = sns.light_palette('#40498e',
         n_colors=6, reverse=True).as_hex()
-    labelColors = ['#FFFFFF','#222222','#222222', '#222222']
+    labelColors = ['#FFFFFF','#FFFFFF','#FFFFFF', '#FFFFFF']
     
     # Create x locations for 4 bars
     width = 0.4
@@ -214,7 +214,7 @@ def plot_visibility_credit(ax):
     # Add cap labels
     ax.bar_label(
         container=bar,
-        labels=('','2 in 3 People','','9 in 10 People'),
+        labels=('','2 in 3 Tasks','','9 in 10 People'),
         color='#222222',
         label_type='edge',
         size=12,
