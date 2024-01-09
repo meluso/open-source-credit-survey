@@ -8,12 +8,12 @@
 
   The coauthors of this work performed the following tasks (following the [CRediT Taxonomy](https://www.nature.com/articles/508312a/tables/1)):
   - Study conception: John Meluso
-  - Methodology: John Meluso, Amanda Casari, Katie McLaughlin, Milo Trujillo, Jean-Gabriel Young
+  - Methodology: John Meluso, Amanda Casari, Katie McLaughlin, Milo Trujillo
   - Formal analysis: John Meluso
   - Investigation (data/evidence collection): John Meluso
   - Data curation: John Meluso
   - Writing/manuscript preparation (writing the initial draft): John Meluso
-  - Writing/manuscript preparation (critical review, commentary or revision): Amanda Casari, Katie McLaughlin, Milo Trujillo, Jean-Gabriel Young
+  - Writing/manuscript preparation (critical review, commentary or revision): Amanda Casari, Katie McLaughlin, Milo Trujillo
   - Writing/manuscript preparation (visualization/data presentation): John Meluso, Milo Trujillo
   - Project administration: John Meluso
   - Funding acquisition: Amanda Casari
