@@ -191,7 +191,7 @@ def plot_means(subfig, otherHandles, overall_mean=False):
         ydata = line.get_ydata()
         
         # Specify arrow direction
-        if oo == 'Visibility ($\geq$2,1,0)':
+        if oo == 'High visibility ($\geq$2,1,0)':
             start = 18/24
             end = 19/24
         else:
