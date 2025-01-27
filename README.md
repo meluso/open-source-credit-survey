@@ -3,7 +3,7 @@
   This repository contains the data and analysis code for the open source software credit survey which measured labor visibility and attribution in open source software ecosystems.
 
   The corresponding publication versions can be found here:
-  - Preprint: To Be Added
+  - Preprint: [https://arxiv.org/abs/2401.06889](https://arxiv.org/abs/2401.06889)
   - Published: To Be Added
 
   The coauthors of this work performed the following tasks (following the [CRediT Taxonomy](https://www.nature.com/articles/508312a/tables/1)):
